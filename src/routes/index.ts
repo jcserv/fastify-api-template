@@ -1,4 +1,5 @@
 import type { FastifyInstance, FastifyPluginOptions } from "fastify";
+import { postOpts } from "./types.ts";
 
 /**
  * Encapsulates the routes
@@ -7,6 +8,10 @@ import type { FastifyInstance, FastifyPluginOptions } from "fastify";
  */
 async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
   fastify.get("/", async (request, reply) => {
+    return { hello: "world" };
+  });
+
+  fastify.post("/", postOpts, async (request, reply) => {
     return { hello: "world" };
   });
 }
