@@ -1,12 +1,11 @@
 import Fastify from "fastify";
+import Routes from "./routes/index.ts";
 
 const fastify = Fastify({
   logger: true,
 });
 
-fastify.get("/", function (request, reply) {
-  reply.send({ hello: "world" });
-});
+fastify.register(Routes);
 
 fastify.listen({ port: 3000 }, function (err, address) {
   if (err) {
