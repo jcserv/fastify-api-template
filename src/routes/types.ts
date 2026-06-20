@@ -5,19 +5,19 @@
 export const postOpts = {
   schema: {
     body: {
-      type: 'object',
+      type: "object",
       properties: {
-        someKey: { type: 'string' },
-        someOtherKey: { type: 'number' }
-      }
+        someKey: { type: "string" },
+        someOtherKey: { type: "number" },
+      },
     },
     response: {
       200: {
-        type: 'object',
+        type: "object",
         properties: {
-          hello: { type: 'string' }
-        }
-      }
-    }
-  }
-}
+          hello: { type: "string" },
+        },
+      },
+    },
+  },
+};
