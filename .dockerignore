@@ -1,0 +1,14 @@
+node_modules
+dist
+coverage
+.git
+.github
+.husky
+*.log
+.env
+.env.*
+!.env.example
+.pnpm-store
+Dockerfile
+.dockerignore
+README.md
