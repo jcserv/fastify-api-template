@@ -22,7 +22,7 @@ RUN pnpm build
 FROM base AS prod-deps
 COPY package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --prod --frozen-lockfile
+    pnpm install --prod --frozen-lockfile --ignore-scripts
 
 # ---- Runner ----
 FROM base AS runner
