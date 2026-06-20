@@ -1,15 +1,10 @@
-import Fastify from "fastify";
+import Fastify, { type FastifyServerOptions } from "fastify";
 import Routes from "./routes/index.ts";
 
-const fastify = Fastify({
-  logger: true,
-});
+function build(opts: FastifyServerOptions = {}) {
+  const app = Fastify(opts);
+  app.register(Routes);
+  return app;
+}
 
-fastify.register(Routes);
-
-fastify.listen({ port: 3000 }, function (err, address) {
-  if (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-});
+export default build;
