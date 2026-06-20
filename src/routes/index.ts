@@ -7,6 +7,10 @@ import { postOpts } from "./types.ts";
  * @param {Object} options plugin options, refer to https://fastify.dev/docs/latest/Reference/Plugins/#plugin-options
  */
 async function routes(fastify: FastifyInstance, _options: FastifyPluginOptions) {
+  fastify.get("/health", async (_request, _reply) => {
+    return { status: "ok" };
+  });
+
   fastify.get("/", async (_request, _reply) => {
     return { hello: "world" };
   });
