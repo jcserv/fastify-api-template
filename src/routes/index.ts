@@ -1,6 +1,5 @@
 import type { FastifyInstance, FastifyPluginOptions } from "fastify";
 import type { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
-import { postOpts } from "./types.ts";
 import bookRoutes from "./books.ts";
 
 /**
@@ -13,15 +12,6 @@ async function routes(fastify: FastifyInstance, _options: FastifyPluginOptions) 
 
   app.get("/health", async (_request, _reply) => {
     return { status: "ok" };
-  });
-
-  app.get("/", async (_request, _reply) => {
-    return { hello: "world" };
-  });
-
-  app.post("/", postOpts, async (_request, _reply) => {
-    // _request.body now typed from postOpts.schema.body
-    return { hello: "world" };
   });
 
   app.register(bookRoutes);
