@@ -1,6 +1,7 @@
 import type { FastifyInstance, FastifyPluginOptions } from "fastify";
 import type { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
 import { postOpts } from "./types.ts";
+import bookRoutes from "./books.ts";
 
 /**
  * Encapsulates the routes
@@ -22,6 +23,8 @@ async function routes(fastify: FastifyInstance, _options: FastifyPluginOptions) 
     // _request.body now typed from postOpts.schema.body
     return { hello: "world" };
   });
+
+  app.register(bookRoutes);
 }
 
 export default routes;

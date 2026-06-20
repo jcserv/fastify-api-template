@@ -1,5 +1,6 @@
 import build from "./app.ts";
 import { config } from "./config.ts";
+import { pool } from "./db.ts";
 
 const server = build({
   logger: {
@@ -22,6 +23,7 @@ const shutdown = async (signal: string) => {
   server.log.info({ signal }, "shutting down");
   try {
     await server.close();
+    await pool.end();
     process.exit(0);
   } catch (err) {
     server.log.error(err);

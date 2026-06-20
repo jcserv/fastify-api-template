@@ -19,11 +19,13 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "fastify": "^5.8.5"
+    "fastify": "^5.8.5",
+    "pg": "^8.22.0"
   },
   "devDependencies": {
     "@fastify/type-provider-json-schema-to-ts": "^5.0.0",
     "@types/node": "^26.0.0",
+    "@types/pg": "^8.20.0",
     "husky": "^9.1.7",
     "json-schema-to-ts": "^3.1.1",
     "lint-staged": "^17.0.7",
