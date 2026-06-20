@@ -1,4 +1,5 @@
 import type { FastifyInstance, FastifyPluginOptions } from "fastify";
+import type { JsonSchemaToTsProvider } from "@fastify/type-provider-json-schema-to-ts";
 import { postOpts } from "./types.ts";
 
 /**
@@ -7,15 +8,18 @@ import { postOpts } from "./types.ts";
  * @param {Object} options plugin options, refer to https://fastify.dev/docs/latest/Reference/Plugins/#plugin-options
  */
 async function routes(fastify: FastifyInstance, _options: FastifyPluginOptions) {
-  fastify.get("/health", async (_request, _reply) => {
+  const app = fastify.withTypeProvider<JsonSchemaToTsProvider>();
+
+  app.get("/health", async (_request, _reply) => {
     return { status: "ok" };
   });
 
-  fastify.get("/", async (_request, _reply) => {
+  app.get("/", async (_request, _reply) => {
     return { hello: "world" };
   });
 
-  fastify.post("/", postOpts, async (_request, _reply) => {
+  app.post("/", postOpts, async (_request, _reply) => {
+    // _request.body now typed from postOpts.schema.body
     return { hello: "world" };
   });
 }

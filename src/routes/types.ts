@@ -1,7 +1,3 @@
-/**
- * @type {import('fastify').RouteShorthandOptions}
- * @const
- */
 export const postOpts = {
   schema: {
     body: {
@@ -20,4 +16,4 @@ export const postOpts = {
       },
     },
   },
-};
+} as const;

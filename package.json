@@ -18,18 +18,14 @@
     "start": "node dist/server.js",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{ts,js,mjs,cjs}": [
-      "oxlint --fix",
-      "oxfmt"
-    ]
-  },
   "dependencies": {
     "fastify": "^5.8.5"
   },
   "devDependencies": {
+    "@fastify/type-provider-json-schema-to-ts": "^5.0.0",
     "@types/node": "^26.0.0",
     "husky": "^9.1.7",
+    "json-schema-to-ts": "^3.1.1",
     "lint-staged": "^17.0.7",
     "oxfmt": "^0.55.0",
     "oxlint": "^1.70.0",
@@ -37,6 +33,12 @@
     "rolldown": "^1.1.2",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs}": [
+      "oxlint --fix",
+      "oxfmt"
+    ]
   },
   "packageManager": "pnpm@10.30.3"
 }
