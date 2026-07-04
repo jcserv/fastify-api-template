@@ -21,7 +21,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "fastify": "^5.8.5",
+    "fastify": "^5.9.0",
     "pg": "^8.22.0"
   },
   "devDependencies": {
